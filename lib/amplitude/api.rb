@@ -47,7 +47,7 @@ module Amplitude
         event_body = events.flatten.map(&:to_hash)
 
         {
-          api_key: api_key,
+          api_key: Amplitude.configuration.api_key,
           event: JSON.generate(event_body)
         }
       end
@@ -91,7 +91,7 @@ module Amplitude
         identification_body = identifications.flatten.map(&:to_hash)
 
         {
-          api_key: api_key,
+          api_key: Amplitude.configuration.api_key,
           identification: JSON.generate(identification_body)
         }
       end
