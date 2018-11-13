@@ -2,6 +2,9 @@
 
 require 'amplitude/version'
 require 'amplitude/configuration'
+require 'amplitude/event'
+require 'amplitude/identification'
+require 'amplitude/api'
 require 'amplitude/logging'
 
 module Amplitude
