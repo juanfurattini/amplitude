@@ -11,7 +11,7 @@ module Amplitude
       device_id time app_version platform os_name os_version device_model country region city ip location_lat
       location_lng insert_id).freeze
 
-    ATTRIBUTES.each { |attribute| attr_accessor ":#{attribute}".to_sym }
+    ATTRIBUTES.each { |attribute| instance_eval("attr_accessor :#{attribute}") }
 
     # Create a new Event
     #
