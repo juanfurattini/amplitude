@@ -2,18 +2,16 @@
 
 module Amplitude
   class Event
-    class << self
-      ATTRIBUTES = %i(
-        user_id device_id event_type time event_properties user_properties groups app_version platform os_name
-        os_version device_brand device_manufacturer device_model carrier country region city dma language price
-        quantity revenue product_id revenue_type location_lat location_lng ip insert_id).freeze
+    ATTRIBUTES = %i(
+      user_id device_id event_type time event_properties user_properties groups app_version platform os_name
+      os_version device_brand device_manufacturer device_model carrier country region city dma language price
+      quantity revenue product_id revenue_type location_lat location_lng ip insert_id).freeze
 
-      OPTIONAL_ATTRIBUTES = %i(
-        device_id time app_version platform os_name os_version device_model country region city ip location_lat
-        location_lng insert_id).freeze
+    OPTIONAL_ATTRIBUTES = %i(
+      device_id time app_version platform os_name os_version device_model country region city ip location_lat
+      location_lng insert_id).freeze
 
-      ATTRIBUTES.each { |attribute| instance_eval("attr_accessor :#{attribute}") }
-    end
+    ATTRIBUTES.each { |attribute| attr_accessor ":#{attribute}".to_sym }
 
     # Create a new Event
     #
