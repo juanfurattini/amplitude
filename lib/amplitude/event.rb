@@ -89,7 +89,7 @@ module Amplitude
 
     # @return [ Hash ] Optional properties
     def optional_properties
-      self.class.OPTIONAL_ATTRIBUTES.map do |prop|
+      OPTIONAL_ATTRIBUTES.map do |prop|
         val = prop == :time ? formatted_time : send(prop)
         val ? [prop, val] : nil
       end.delete_if { |_, value| value.nil? }.to_h
